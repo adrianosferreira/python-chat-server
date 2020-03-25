@@ -30,7 +30,7 @@ async def chat(websocket, path):
         await unregister(websocket)
 
 
-start_server = websockets.serve(chat, "localhost", 8881)
+start_server = websockets.serve(chat)
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
