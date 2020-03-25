@@ -1,6 +1,7 @@
 import asyncio
 import websockets
 import json
+import os
 
 USERS = set()
 
@@ -30,7 +31,8 @@ async def chat(websocket, path):
         await unregister(websocket)
 
 
-start_server = websockets.serve(chat, "localhost", 5000)
+print(os.environ)
+start_server = websockets.serve(chat, "localhost", os.environ.get('PORT'))
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
