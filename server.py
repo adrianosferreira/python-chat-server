@@ -32,7 +32,7 @@ async def chat(websocket, path):
 
 
 print(os.environ)
-start_server = websockets.serve(chat, "localhost", os.environ.get('PORT'))
+start_server = websockets.serve(chat, "0.0.0.0", os.environ.get('PORT'))
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
